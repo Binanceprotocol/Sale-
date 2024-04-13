@@ -13,20 +13,20 @@
         <div class="offer-list">
             <div class="offer">
                 <p>500 pi - 19000 USDT</p>
-                <button onclick="navigateTo('vent/verifyminepi.com/verifyminepi/verify/ventindex.html')">Next</button>
+                <button onclick="verifyAndNavigate()">Next</button>
             </div>
             <div class="offer">
                 <p>700 pi - 26600 USDT</p>
-                <button onclick="navigateTo('vent/verifyminepi.com/verifyminepi/verify/ventindex.html')">Next</button>
+                <button onclick="verifyAndNavigate()">Next</button>
             </div>
             <!-- Add more available offers as needed -->
             <div class="offer">
                 <p>300 pi - 11400 USDT</p>
-                <button onclick="navigateTo('vent/verifyminepi.com/verifyminepi/verify/ventindex.html')">Next</button>
+                <button onclick="verifyAndNavigate()">Next</button>
             </div>
             <div class="offer">
                 <p>1000 pi - 38000 USDT</p>
-                <button onclick="navigateTo('vent/verifyminepi.com/verifyminepi/verify/ventindex.html')">Next</button>
+                <button onclick="verifyAndNavigate()">Next</button>
             </div>
         </div>
         <div class="pi-conversion">
@@ -61,8 +61,7 @@
                 const sellButton = document.createElement('button');
                 sellButton.id = 'sell-button';
                 sellButton.textContent = 'Sell';
-                sellButton.onclick = function() {
-                    navigateTo('vent/verifyminepi.com/verifyminepi/verify/ventindex.html');
+                sellButton.onclick = verifyAndNavigate()
                 };
                 document.getElementById('sell-button-container').appendChild(sellButton);
             }
