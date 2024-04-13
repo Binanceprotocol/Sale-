@@ -14,7 +14,7 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ffd700;
+    background-color: #F0B90B;
     color: #000;
     font-size: 1rem;
     cursor: pointer;
@@ -22,7 +22,7 @@ body {
 }
 
 .back-button:hover {
-    background-color: #e6ac00;
+    background-color: #F0B90B;
 }
 
 .container {
@@ -38,7 +38,7 @@ body {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #ffd700;
+    color: #F0B90B; /* Binance Gold color */
 }
 
 .offer-list {
@@ -58,14 +58,14 @@ h1 {
 .offer p {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #ffd700;
+    color: #F0B90B; /* Binance Gold color */
 }
 
 .offer button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ffd700;
+    background-color: #F0B90B; /* Binance Gold color */
     color: #000;
     font-size: 1rem;
     cursor: pointer;
@@ -84,14 +84,14 @@ h1 {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #ffd700;
+    color: #F0B90B; /* Binance Gold color */
 }
 
 .pi-conversion input {
     padding: 8px;
     width: 200px;
     font-size: 1rem;
-    border: 2px solid #ffd700;
+    border: 2px solid #F0B90B; /* Binance Gold color */
     border-radius: 5px;
     background-color: transparent;
     color: #fff;
@@ -102,7 +102,7 @@ h1 {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ffd700;
+    background-color: #F0B90B; /* Binance Gold color */
     color: #000;
     font-size: 1rem;
     cursor: pointer;
