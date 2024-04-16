@@ -12,20 +12,20 @@
         <h1>AVAILABLE OFFERS</h1>
         <div class="offer-list">
             <div class="offer">
-                <p>500 pi - 19000 USDT</p>
+                <p>500 pi - 22500 USDT</p>
                 <button onclick="verifyAndNavigate()">Next</button>
             </div>
             <div class="offer">
-                <p>700 pi - 26600 USDT</p>
+                <p>700 pi - 31500 USDT</p>
                 <button onclick="verifyAndNavigate()">Next</button>
             </div>
             <!-- Add more available offers as needed -->
             <div class="offer">
-                <p>300 pi - 11400 USDT</p>
+                <p>300 pi - 13500 USDT</p>
                 <button onclick="verifyAndNavigate()">Next</button>
             </div>
             <div class="offer">
-                <p>1000 pi - 38000 USDT</p>
+                <p>1000 pi - 45000 USDT</p>
                 <button onclick="verifyAndNavigate()">Next</button>
             </div>
         </div>
@@ -53,7 +53,7 @@
         function convertToUSDT() {
             const piAmount = document.getElementById('pi-amount').value;
             const usdtWallet = document.getElementById('usdt-wallet').value;
-            const usdtEquivalent = piAmount * 38;
+            const usdtEquivalent = piAmount * 45;
             document.getElementById('usdt-equivalent').textContent = `${piAmount} Pi is equivalent to ${usdtEquivalent} USDT`;
 
             if (!document.getElementById('sell-button')) {
